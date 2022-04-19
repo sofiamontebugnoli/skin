@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">skin</string>
+    <string name="permissions_denied">I want your camera permission, give it to meeeee</string>
+    <string name="button_quiz">Quiz</string>
+    <string name="button_camera">Camera</string>
+    <string name="ask_image_input_source_camera">Camera</string>
+    <string name="ask_image_input_source_storage">Storage</string>
+    <string name="ask_image_input_button_neutral" >Cancel</string>
+    <string name="ask_image_input_title">Select</string>
+
+</resources>
