@@ -9,8 +9,7 @@ import java.util.concurrent.Executors
 
 class ImageAnalyzer(private val context: Context, private val image: Bitmap) {
 
-    val onAnalyze : MutableList<(List<Category>)->Any> = ArrayList()
-
+    val onSuccessAnalyze : MutableList<(List<Category>)->Any> = ArrayList() //lista di funzioni che restituisce qulasiasi cosa
 
     fun startAnalyze(){
         Executors.newSingleThreadExecutor().also {
@@ -27,8 +26,7 @@ class ImageAnalyzer(private val context: Context, private val image: Bitmap) {
             // Releases model resources if no longer used.
             model.close()
 
-            this.onAnalyze.forEach { it(probability) }
+            this.onSuccessAnalyze.forEach { it(probability) }
         }
-
     }
 }

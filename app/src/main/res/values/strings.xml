@@ -7,5 +7,6 @@
     <string name="ask_image_input_source_storage">Storage</string>
     <string name="ask_image_input_button_neutral" >Cancel</string>
     <string name="ask_image_input_title">Select</string>
+    <string name="choose_from_storage">Choose an image from the storage</string>
 
 </resources>

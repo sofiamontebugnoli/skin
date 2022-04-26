@@ -21,7 +21,10 @@ class QuizActivity : AppCompatActivity() {
                                 this.startActivity(intent)
                                 this@QuizActivity.finish()
                             }
-                            SelectImageSourceDialog.Input.STORAGE->{ //TODO IMAGE FROM STORAGE
+                            SelectImageSourceDialog.Input.STORAGE->{
+                                Intent(this@QuizActivity,StorageActivity::class.java).also { i ->
+                                    this@QuizActivity.startActivity(i)
+                                }
                             }
                         }
                     }
