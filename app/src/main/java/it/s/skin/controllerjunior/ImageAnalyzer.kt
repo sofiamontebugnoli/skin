@@ -9,7 +9,7 @@ import java.util.concurrent.Executors
 
 class ImageAnalyzer(private val context: Context, private val image: Bitmap) {
 
-    val onSuccessAnalyze : MutableList<(List<Category>)->Any> = ArrayList() //lista di funzioni che restituisce qulasiasi cosa
+    val onSuccessAnalyze : MutableList<(List<Category>)->Any> = ArrayList() //list of functions that returns any
 
     fun startAnalyze(){
         Executors.newSingleThreadExecutor().also {

@@ -3,12 +3,9 @@ package it.s.skin.view
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -16,10 +13,9 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toFile
 import androidx.lifecycle.LifecycleOwner
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import it.s.skin.R
-import it.s.skin.controllerjunior.TakePictureCallback
 import it.s.skin.view.utils.CameraManager
 import it.s.skin.view.utils.PermissionUtils
 import java.io.File
@@ -40,6 +36,12 @@ class CameraActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), REQUEST_CODE)
 
         }
+        /*val text= intent.getStringExtra("quiz_result")
+        Intent(this@CameraActivity, StorageActivity::class.java).apply {
+            putExtra("quiz_result", text)
+        }.also { i ->
+            this@CameraActivity.startActivity(i)
+        }*/
 
     }
 
@@ -58,10 +60,6 @@ class CameraActivity : AppCompatActivity() {
                 if (checkPermissions) {
                     CameraManager.provideCamera(this, this::bindPreview)
                 } else {
-                    Log.d(
-                        "Permissions",
-                        "Permissions has been denied , please give me permissionsssssss"
-                    )
                     Toast.makeText(this, R.string.permissions_denied, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -87,10 +85,32 @@ class CameraActivity : AppCompatActivity() {
         val imageCapture = ImageCapture.Builder()
             .build()
 
-        findViewById<Button>(R.id.take_picture).apply {
+        findViewById<FloatingActionButton>(R.id.take_picture).apply {
             setOnClickListener {
                 val outputFileOptions = ImageCapture.OutputFileOptions.Builder(File("${this@CameraActivity.filesDir}${File.separator}${System.currentTimeMillis()}")).build()
-                imageCapture.takePicture(outputFileOptions, Executors.newSingleThreadExecutor(), TakePictureCallback(this@CameraActivity))
+                imageCapture.takePicture(outputFileOptions, Executors.newSingleThreadExecutor(), object : ImageCapture.OnImageSavedCallback {
+                    override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                        outputFileResults.savedUri?.let {
+                            Intent(this@CameraActivity, ResultActivity::class.java).apply {
+                                putExtra("URI", it)
+                                putExtra("quiz_result", intent.getStringExtra("quiz_result"))
+                            }.also {
+                                //CameraManager.undoCamera(context)
+                                runOnUiThread{
+                                    CameraManager.undoCamera(context)
+                                    this@CameraActivity.startActivity(it)
+                                    this@CameraActivity.finish()
+                                }
+
+                            }
+                        }
+                    }
+
+                    override fun onError(exception: ImageCaptureException) {
+
+                    }
+
+                })
             }
         }
 

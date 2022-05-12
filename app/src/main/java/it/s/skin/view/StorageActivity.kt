@@ -10,7 +10,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.net.toFile
 import it.s.skin.R
 import it.s.skin.view.utils.PermissionUtils
 
@@ -31,6 +30,12 @@ class StorageActivity : AppCompatActivity() {
             )
         ) {
             this.askForAPhoto()
+            /*val text= intent.getStringExtra("quiz_result")
+            Intent(this@StorageActivity, StorageActivity::class.java).apply {
+                putExtra("quiz_result", text)
+            }.also { i ->
+                this@StorageActivity.startActivity(i)
+            }*/
         } else {
             ActivityCompat.requestPermissions(
                 this,
@@ -58,7 +63,7 @@ class StorageActivity : AppCompatActivity() {
                 } else {
                     Log.d(
                         "Permissions",
-                        "Permissions has been denied , please give me permissionsssssss"
+                        "Permissions has been denied , please give me permissions"
                     )
                     Toast.makeText(this, R.string.permissions_denied, Toast.LENGTH_SHORT).show()
                 }

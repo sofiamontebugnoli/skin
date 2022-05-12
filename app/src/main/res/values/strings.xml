@@ -1,12 +1,67 @@
 <resources>
-    <string name="app_name">skin</string>
+    <string name="app_name" translatable="false">skin</string>
     <string name="permissions_denied">I want your camera permission, give it to meeeee</string>
-    <string name="button_quiz">Quiz</string>
-    <string name="button_camera">Camera</string>
+    <string name="finish_the_quiz">To complete your analysis you should finish the quiz before taking a picture</string>
+    <string name="button_quiz">Skin analysis</string>
+    <string name="next_step_analysis">Next step</string>
+    <string name="take_picture">Take picture</string>
     <string name="ask_image_input_source_camera">Camera</string>
     <string name="ask_image_input_source_storage">Storage</string>
-    <string name="ask_image_input_button_neutral" >Cancel</string>
+    <string name="ask_image_input_button_neutral">Cancel</string>
     <string name="ask_image_input_title">Select</string>
     <string name="choose_from_storage">Choose an image from the storage</string>
+    <string name="normal_skin">normal</string>
+    <string name="oily_skin">oily</string>
+    <string name="dry_skin">dry</string>
+    <string name="sensitive_skin">sensitive</string>
+    <string name="skin_declaration">Your skin is</string>
+
+    <string name="Question1">1. Is your skin oily?</string>
+    <string name="Answer1.1">Yes, everywhere</string>
+    <string name="Answer1.2">Yes, in the T-zone</string>
+    <string name="Answer1.3">No</string>
+
+    <string name="Question2">2. Your skin appears…</string>
+    <string name="Answer2.1">Homogeneous</string>
+    <string name="Answer2.2">Inhomogeneous</string>
+
+    <string name="Question3">3. Is your skin dry or scaly?</string>
+    <string name="Answer3.1">Yes, almost everywhere</string>
+    <string name="Answer3.2">Yes, especially on cheeks and around the nose</string>
+    <string name="Answer3.3">No</string>
+
+    <string name="Question4">4. Does your skin have black heads?</string>
+    <string name="Answer4.1">Yes, everywhere</string>
+    <string name="Answer4.2">Yes, especially on the T-zone</string>
+    <string name="Answer4.3">No</string>
+
+    <string name="Question5">5. Does your skin have pimples?</string>
+    <string name="Answer5.1">Yes, almost everywhere</string>
+    <string name="Answer5.2">Yes, but only some times (e.g. when i am stressed)</string>
+    <string name="Answer5.3">No</string>
+
+    <string name="Question6">6. Does your skin have redness or irritations?</string>
+    <string name="Answer6.1">Yes</string>
+    <string name="Answer6.2">No</string>
+
+    <string name="Question7">7. The thickness of your skin is…</string>
+    <string name="Answer7.1">Thin</string>
+    <string name="Answer7.2">Thick</string>
+
+    <string name="Question8">8. Do you have large pores?</string>
+    <string name="Answer8.1">Yes</string>
+    <string name="Answer8.2">No</string>
+
+
+    <string name="default_image_db_name">imageDB</string>
+    <string name="empty_str" translatable="false"/>
+    <string name="delete" >Delete image</string>
+    <string name="image_analysis" >Image used to analyse your skin</string>
+    <string name="image_default" >Default image</string>
+
+    <string name="warning_delete_title">Warning</string>
+    <string name="warning_delete_message">You are deleting an analysis</string>
+    <string name="warning_delete_positive_button">Delete</string>
+    <string name="warning_delete_negative_button">Cancel</string>
 
 </resources>

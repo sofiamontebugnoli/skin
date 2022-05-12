@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="padding_scroll_bar">8dp</dimen>
+    <dimen name="quiz_margin">0dp</dimen>
+    <dimen name="corner_radius">20dp</dimen>
 </resources>
